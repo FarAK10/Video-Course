@@ -1,0 +1,50 @@
+@import '../shared/styles/colors.scss';
+@import '../shared/styles/buttons.scss';
+
+.main {
+  padding: 0 40px;
+
+  .bread-scrumb {
+    background-color: white;
+  }
+
+  .courses-management {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: $grey;
+    padding: 20px 0;
+
+    .add-course {
+      display: flex;
+      justify-content: flex-end;
+
+      &__btn {
+        @include blue-button;
+      }
+    }
+
+    .app-search-wrapper {
+      margin-left: 20px;
+    }
+
+    .courses-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 0 auto;
+
+      .load-more {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+        background-color: white;
+
+        &__btn {
+          @include blue-button;
+        }
+      }
+    }
+  }
+}

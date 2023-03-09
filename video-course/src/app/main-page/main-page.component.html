@@ -1,8 +1,24 @@
 <app-header></app-header>
 <main class="main">
-  <div class="breadScumb">
-    <p class="breadScrumb__text">Courses</p>
+  <div class="main__breadScumb bread-rumb">
+    <h2 class="breadScrumb__title">Courses</h2>
   </div>
-  <app-search-control></app-search-control>
-  <app-courses></app-courses>
+  <section class="courses-management">
+    <div class="app-search-wrapper">
+      <app-search-control></app-search-control>
+    </div>
+
+    <div class="courses-wrapper">
+      <div class="add-course">
+        <button mat-button class="add-course__btn"><mat-icon>add</mat-icon>Add course</button>
+      </div>
+      <app-courses></app-courses>
+      <div class="load-more">
+        <button mat-button class="load-more__btn">
+          <mat-icon>cloud_download</mat-icon> Load More
+        </button>
+      </div>
+    </div>
+  </section>
 </main>
+<app-footer></app-footer>

@@ -1,20 +1,13 @@
 <div class="course">
   <div class="course__about">
     <div class="course__top-content">
-      <h2 class="course__title">Vide Course 1. Name Tag</h2>
+      <h2 class="course__title">{{ course.title }}</h2>
       <div class="course__date-time">
-        <div class="date"><mat-icon>alarm</mat-icon>1h 28 min</div>
-        <div class="duration"><mat-icon>calendar_today </mat-icon> 9 Nov,2018</div>
+        <div class="date"><mat-icon>alarm</mat-icon>{{ course.duration }}</div>
+        <div class="duration"><mat-icon>calendar_today </mat-icon> {{ course.date }}</div>
       </div>
     </div>
-    <p class="course__description">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta molestias impedit tempore
-      necessitatibus tenetur ut quos corporis voluptate suscipit. Quod praesentium fugit quae
-      doloremque quasi beatae dolor soluta obcaecati iusto magni. Aliquam, at fugiat ab quasi fugit
-      explicabo nemo nisi quo deserunt eos unde modi odit optio harum ullam, eum rem delectus earum
-      voluptate incidunt labore exercitationem numquam tempore cumque. Eligendi vero, dolore
-      expedita nam inventore aut
-    </p>
+    <p class="course__description">{{ course.description }}</p>
   </div>
   <div class="course__controllers controllers">
     <button mat-button class="controllers__edit"><mat-icon>create</mat-icon>Edit</button>
