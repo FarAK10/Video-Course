@@ -4,7 +4,10 @@
   "overrides": [
     {
       "files": ["*.ts"],
-      "extends": ["plugin:@angular-eslint/recommended", "plugin:prettier/recommended"],
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:prettier/recommended"
+      ],
       "parserOptions": {
         "project": ["tsconfig.*?.json"],
         "createDefaultProgram": true
@@ -34,10 +37,10 @@
       }
     },
     {
-      "files": ["src/**/*.spec.ts", "src/**/*.d.ts"],
-      "parserOptions": {
-        "project": "./src/tsconfig.spec.json"
-      },
+      "files": [
+        "src/**/*.spec.ts",
+        "src/**/*.d.ts"
+      ],
       // Правила для линтера
       "extends": ["plugin:jasmine/recommended"],
       // Плагин для запуска правил
