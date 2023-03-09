@@ -7,9 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class CourseComponent {
   @Input() course: ICourse = {
+    id: 1,
     date: '',
     description: '',
-    duration: '',
+    duration: 10,
     title: '',
   };
 }

@@ -16,7 +16,13 @@
     max-width: 700px;
   }
   &__title {
+    display: flex;
+    align-items: center;
     margin: 0;
+
+    .star {
+      color: yellow;
+    }
   }
 
   &__top-content {
@@ -57,4 +63,8 @@
       @include blue-button;
     }
   }
+}
+
+.top-rated {
+  background-color: rgb(207, 171, 231);
 }

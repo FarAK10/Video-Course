@@ -7,6 +7,7 @@ import { CoursesComponent } from './components/courses/courses.component';
 import { CourseComponent } from './components/course/course.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainPageComponent } from './main-page.component';
+import { HighlightDirective } from '../shared/directives/highlight.directive';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -14,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
+    HighlightDirective,
     HeaderComponent,
     SearchControlComponent,
     CoursesComponent,
@@ -28,6 +30,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     MatButtonModule,
   ],
-  exports: [MainPageComponent],
+  exports: [
+    MainPageComponent,
+  ],
 })
 export class MainPageModule {}

@@ -1,23 +1,27 @@
 export const courses: ICourse[] = [
   {
-    date: '9 Nov,2018',
+    id: 1,
+    date: '05 October 2011 14:48 UTC',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    duration: '1h 28min',
+    duration: 80,
     title: 'Video Course 1',
   },
   {
-    date: '10 Feb,2010',
+    id: 2,
+    date: '05 October 2024 14:48 UTC',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    duration: '2h 13min',
+    duration: 120,
     title: 'Video Course 2',
+    isTopRated: true,
   },
   {
-    date: '11 Sep,2018',
+    id: 3,
+    date: '05 October 2023 14:48 UTC',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    duration: '1h 14min',
+    duration: 50,
     title: 'Video Course 3',
   },
 ];

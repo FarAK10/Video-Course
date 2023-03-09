@@ -1,10 +1,13 @@
-<div class="course">
+<div class="course" [appHighlight]="course.date" [ngClass]="{ 'top-rated': course.isTopRated }">
   <div class="course__about">
     <div class="course__top-content">
-      <h2 class="course__title">{{ course.title }}</h2>
+      <h2 class="course__title">
+        {{ course.title | uppercase }}
+        <mat-icon *ngIf="course.isTopRated" class="star">star</mat-icon>
+      </h2>
       <div class="course__date-time">
         <div class="date"><mat-icon>alarm</mat-icon>{{ course.duration }}</div>
-        <div class="duration"><mat-icon>calendar_today </mat-icon> {{ course.date }}</div>
+        <div class="duration"><mat-icon>calendar_today </mat-icon> {{ course.date[1] }}</div>
       </div>
     </div>
     <p class="course__description">{{ course.description }}</p>

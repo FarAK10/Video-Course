@@ -1,6 +1,8 @@
 interface ICourse {
+  id: number;
   title: string;
-  duration: string;
+  duration: number;
   date: string;
   description: string;
+  isTopRated?: boolean;
 }
