@@ -6,5 +6,10 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./course.component.scss'],
 })
 export class CourseComponent {
-  @Input() course!: ICourse;
+  @Input() course: ICourse = {
+    date: '',
+    description: '',
+    duration: '',
+    title: '',
+  };
 }
