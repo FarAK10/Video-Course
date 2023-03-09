@@ -1,0 +1,48 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.05);
+
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #333;
+
+    &__icon {
+      font-size: 40px;
+      margin-right: 0.5rem;
+      width: 40px;
+      height: 40px;
+    }
+
+    &__title {
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+
+  &__user-auth {
+    display: flex;
+    align-items: center;
+
+    & button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #333;
+      font-size: 1rem;
+      margin-left: 1rem;
+      display: flex;
+      align-items: center;
+
+      & mat-icon {
+        font-size: 1.5rem;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
