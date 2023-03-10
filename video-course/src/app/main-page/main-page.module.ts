@@ -13,6 +13,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { DurationPipe } from '../shared/pipes/duration.pipe';
+
 @NgModule({
   declarations: [
     HighlightDirective,
@@ -22,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     CourseComponent,
     FooterComponent,
     MainPageComponent,
+    DurationPipe,
   ],
   imports: [
     CommonModule,

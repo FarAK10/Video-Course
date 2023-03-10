@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainPageModule } from './main-page/main-page.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HighlightDirective } from './shared/directives/highlight.directive';
 @NgModule({
   declarations: [
     AppComponent,
