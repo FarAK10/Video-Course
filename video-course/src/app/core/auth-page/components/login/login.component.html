@@ -1,1 +1,25 @@
-<p>login works!</p>
+<mat-card class="login">
+  <mat-card-header class="login__header header">
+    <mat-card-title class="header___title">Login</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="login__content content">
+    <form [formGroup]="loginForm" class="login__form">
+      <mat-form-field appearance="fill">
+        <mat-label> Email</mat-label>
+        <input matInput type="email" formControlName="email" required>
+
+      </mat-form-field>
+      <mat-error *ngIf="loginForm.get('email')?.hasError('required')">Email is required</mat-error>
+      <mat-error *ngIf="loginForm.get('email')?.hasError('email')">Email should be valid</mat-error>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput type="password"  formControlName="password">
+      </mat-form-field>
+      <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password is required</mat-error>
+      <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">Minlength of the password is 8 characters</mat-error>
+
+    </form>
+    <button class="login__btn" mat-raised-button color="primary" [disabled]="!loginForm.valid" type="submit" (click)="onSubmit()">Login</button>
+  </mat-card-content>
+</mat-card>
