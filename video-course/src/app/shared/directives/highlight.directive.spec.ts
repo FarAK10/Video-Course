@@ -4,7 +4,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { CourseComponent } from 'src/app/main-page/components/course/course.component';
 import { MatIconModule } from '@angular/material/icon';
-import { DurationPipe } from '../pipes/duration.pipe';
+import { DurationPipe } from '../pipes/duration-pipe/duration.pipe';
 describe('HighlightDirective', () => {
   let fixture: ComponentFixture<CourseComponent>;
   let debugElement: DebugElement;

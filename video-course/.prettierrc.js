@@ -4,8 +4,9 @@ module.exports = {
   semi: true,
   singleQuote: true,
   bracketSpacing: true,
-  printWidth: 100,
+  printWidth: 80,
   plugins: [
     './node_modules/prettier-plugin-multiline-arrays',
   ],
+  proseWrap: 'always',
 };

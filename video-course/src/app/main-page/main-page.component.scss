@@ -15,14 +15,7 @@
     background-color: $grey;
     padding: 20px 0;
 
-    .add-course {
-      display: flex;
-      justify-content: flex-end;
 
-      &__btn {
-        @include blue-button;
-      }
-    }
 
     .app-search-wrapper {
       margin-left: 20px;
@@ -34,17 +27,7 @@
       gap: 10px;
       margin: 0 auto;
 
-      .load-more {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 60px;
-        background-color: white;
 
-        &__btn {
-          @include blue-button;
-        }
-      }
     }
   }
 }

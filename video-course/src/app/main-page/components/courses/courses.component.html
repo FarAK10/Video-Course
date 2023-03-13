@@ -1,6 +1,14 @@
 <div class="courses">
-  <ng-container *ngIf="!courses.length"
-    ><h3>No data, feel free to add New Course!</h3></ng-container
-  >
-  <app-course *ngFor="let course of courses" [course]="course"></app-course>
+  <div class="add-course">
+    <button mat-button class="add-course__btn"><mat-icon>add</mat-icon>Add course</button>
+  </div>
+  <div class="courses__filtered" *ngIf="filteredCourses.length>0">
+    <app-course *ngFor="let course of filteredCourses  |orderBy" [course]="course"></app-course>
+    <div class="load-more">
+      <button mat-button class="load-more__btn">
+        <mat-icon>cloud_download</mat-icon> Load More
+      </button>
+    </div>
+  </div> <!-- This is the corrected closing tag for the div -->
+  <h3 class="courses__empty-title" *ngIf="filteredCourses.length===0">No data, feel free to add New Course!</h3>
 </div>

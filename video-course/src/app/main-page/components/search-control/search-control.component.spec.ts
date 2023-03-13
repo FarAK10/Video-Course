@@ -21,7 +21,9 @@ describe('SearchControlComponent', () => {
         MatButtonModule,
         BrowserAnimationsModule,
       ],
-      providers: [{ provide: MatFormFieldControl, useExisting: SearchControlComponent }],
+      providers: [
+        { provide: MatFormFieldControl, useExisting: SearchControlComponent },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SearchControlComponent);

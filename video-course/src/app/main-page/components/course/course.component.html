@@ -7,7 +7,9 @@
       </h2>
       <div class="course__date-time">
         <div class="date"><mat-icon>alarm</mat-icon>{{ course.duration | duration }}</div>
-        <div class="duration"><mat-icon>calendar_today </mat-icon> {{ course.date[1] }}</div>
+        <div class="duration">
+          <mat-icon>calendar_today </mat-icon> {{ date | date : 'd MMM,y' }}
+        </div>
       </div>
     </div>
     <p class="course__description">{{ course.description }}</p>

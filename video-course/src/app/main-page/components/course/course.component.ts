@@ -1,11 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-course',
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.scss'],
 })
-export class CourseComponent {
+export class CourseComponent implements OnChanges {
   @Input() course: ICourse = {
     id: 1,
     date: '',
@@ -13,4 +13,10 @@ export class CourseComponent {
     duration: 10,
     title: '',
   };
+
+  date: Date = new Date();
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.date = new Date(this.course.date);
+  }
 }
