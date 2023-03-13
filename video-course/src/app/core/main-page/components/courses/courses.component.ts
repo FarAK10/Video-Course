@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CoursesDataService } from '../../services/courses-data.service';
 import { Observable, of, Subscription, switchMap, map } from 'rxjs';
-import { FilterPipe } from 'src/app/shared/pipes/filter-pipe/filter.pipe';
+import { FilterPipe } from 'src/app/core/shared/pipes/filter-pipe/filter.pipe';
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',

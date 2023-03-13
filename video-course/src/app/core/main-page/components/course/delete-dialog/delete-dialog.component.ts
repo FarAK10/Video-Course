@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CoursesDataService } from 'src/app/main-page/services/courses-data.service';
+import { CoursesDataService } from '../../../services/courses-data.service';
 
 @Component({
   selector: 'app-delete-dialog',

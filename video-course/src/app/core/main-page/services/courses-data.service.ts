@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { courses } from 'src/app/shared/data/courses';
-import { FilterPipe } from 'src/app/shared/pipes/filter-pipe/filter.pipe';
+import { courses } from '../../shared/data/courses';
+import { FilterPipe } from '../../shared/pipes/filter-pipe/filter.pipe';
 import { Observable, map, BehaviorSubject } from 'rxjs';
 
 @Injectable({
