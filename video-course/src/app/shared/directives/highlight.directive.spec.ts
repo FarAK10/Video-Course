@@ -5,6 +5,7 @@ import { By } from '@angular/platform-browser';
 import { CourseComponent } from 'src/app/main-page/components/course/course.component';
 import { MatIconModule } from '@angular/material/icon';
 import { DurationPipe } from '../pipes/duration-pipe/duration.pipe';
+import { MatDialogModule } from '@angular/material/dialog';
 describe('HighlightDirective', () => {
   let fixture: ComponentFixture<CourseComponent>;
   let debugElement: DebugElement;
@@ -15,7 +16,10 @@ describe('HighlightDirective', () => {
         HighlightDirective,
         DurationPipe,
       ],
-      imports: [MatIconModule],
+      imports: [
+        MatIconModule,
+        MatDialogModule,
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(CourseComponent);

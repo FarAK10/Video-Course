@@ -4,6 +4,7 @@ import { CoursesComponent } from './courses.component';
 import { CourseComponent } from '../course/course.component';
 
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { DurationPipe } from 'src/app/shared/pipes/duration-pipe/duration.pipe';
 import { FilterPipe } from 'src/app/shared/pipes/filter-pipe/filter.pipe';
@@ -24,7 +25,10 @@ describe('CoursesComponent', () => {
         OrderByPipe,
       ],
       providers: [FilterPipe],
-      imports: [MatIconModule],
+      imports: [
+        MatIconModule,
+        MatDialogModule,
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(CoursesComponent);
