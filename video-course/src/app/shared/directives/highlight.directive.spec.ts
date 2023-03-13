@@ -1,5 +1,5 @@
 import { HighlightDirective } from './highlight.directive';
-import { CUSTOM_ELEMENTS_SCHEMA, DebugElement, ElementRef } from '@angular/core';
+import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { CourseComponent } from 'src/app/main-page/components/course/course.component';
