@@ -13,12 +13,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { DurationPipe } from '../shared/pipes/duration-pipe/duration.pipe';
 import { FilterPipe } from '../shared/pipes/filter-pipe/filter.pipe';
 import { OrderByPipe } from '../shared/pipes/orderBy-pipe/order-by.pipe';
 
 import { HighlightDirective } from '../shared/directives/highlight.directive';
+import { DeleteDialogComponent } from './components/course/delete-dialog/delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { HighlightDirective } from '../shared/directives/highlight.directive';
     MainPageComponent,
     DurationPipe,
     OrderByPipe,
+    DeleteDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -39,6 +42,7 @@ import { HighlightDirective } from '../shared/directives/highlight.directive';
     FormsModule,
     MatButtonModule,
     ReactiveFormsModule,
+    MatDialogModule,
   ],
   exports: [
     MainPageComponent,

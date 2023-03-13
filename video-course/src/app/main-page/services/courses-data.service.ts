@@ -30,4 +30,13 @@ export class CoursesDataService {
       }),
     );
   }
+
+  deleteCourse(id: number): void {
+    this.courses.forEach((course: ICourse, ind: number) => {
+      if (course.id === id) {
+        this.courses.splice(ind, 1);
+      }
+    });
+    this.courses$.next(this.courses);
+  }
 }
