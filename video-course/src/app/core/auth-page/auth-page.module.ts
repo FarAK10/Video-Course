@@ -12,6 +12,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     LoginComponent,
@@ -27,6 +29,8 @@ import { MatInputModule } from '@angular/material/input';
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatIconModule,
+    RouterModule,
   ],
   exports: [
     LoginComponent,

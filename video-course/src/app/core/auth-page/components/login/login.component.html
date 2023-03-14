@@ -14,7 +14,10 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Enter your password</mat-label>
-        <input matInput type="password"  formControlName="password">
+        <input matInput type="password"  formControlName="password" [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
       </mat-form-field>
       <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password is required</mat-error>
       <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">Minlength of the password is 8 characters</mat-error>
@@ -22,4 +25,5 @@
     </form>
     <button class="login__btn" mat-raised-button color="primary" [disabled]="!loginForm.valid" type="submit" (click)="onSubmit()">Login</button>
   </mat-card-content>
+  <a routerLink="/signup"  >Haven't account yet? Try to SignUp</a>
 </mat-card>

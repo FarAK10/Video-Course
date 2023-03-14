@@ -5,6 +5,7 @@ import { SearchControlComponent } from './components/search-control/search-contr
 import { CoursesComponent } from './components/courses/courses.component';
 import { CourseComponent } from './components/course/course.component';
 import { MainPageComponent } from './main-page.component';
+import { DeleteDialogComponent } from './components/course/delete-dialog/delete-dialog.component';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -27,6 +28,7 @@ import { HighlightDirective } from '../shared/directives/highlight.directive';
     CourseComponent,
     MainPageComponent,
     DurationPipe,
+    DeleteDialogComponent,
     OrderByPipe,
   ],
   imports: [
