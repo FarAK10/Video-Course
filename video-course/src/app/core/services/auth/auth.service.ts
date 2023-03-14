@@ -11,15 +11,24 @@ export class AuthService {
   constructor(private usersService: UsersService) {}
 
   login(canidate: Pick<IUser, 'email' | 'password'>) {
-    const currentUser = this.usersService.getUserByEmail(
+    const currentUser = this.usersService.checkCredentials(
       canidate.email,
       canidate.password,
     );
     console.log(currentUser);
-    if (currentUser === null) {
-      this.isLoggedIn = false;
-    } else {
+    if (currentUser) {
       this.isLoggedIn = true;
+    } else {
+      throw new Error('Incorect email or password');
+    }
+  }
+
+  signUp(newUser: IUserBody) {
+    this.currentUser = this.usersService.addUser(newUser);
+    if (this.currentUser) {
+      this.isLoggedIn = true;
+    } else {
+      throw new Error('user with such Email already exists');
     }
   }
 }

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { passwordMatchValidator } from '../../helpers/password-match-validator';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -11,7 +15,12 @@ export class SignupComponent implements OnInit {
 
   signupForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private dialog: MatDialog,
+  ) {}
 
   ngOnInit(): void {
     this.signupForm = this.fb.group(
@@ -51,9 +60,14 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log;
-    if (this.signupForm.valid) {
-      const login = this.signupForm.value;
+    const userBody: IUserBody = this.signupForm.value;
+    try {
+      this.authService.signUp(userBody);
+      this.router.navigate(['/courses']);
+    } catch (err) {
+      if (err instanceof Error) {
+        this.dialog.open(ErrorDialogComponent, { data: err });
+      }
     }
   }
 }

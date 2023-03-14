@@ -6,32 +6,32 @@
     <form [formGroup]="signupForm" class="login__form form">
 
 
-      <div class="form__full-name">
-        <div class="first-name">
-          <mat-form-field appearance="fill">
-            <mat-label> First Name</mat-label>
-            <input matInput type="text" formControlName="firstName" required>
-          </mat-form-field>
-          <mat-error *ngIf="signupForm.get('firstName')?.hasError('required')">First Name is required</mat-error>
-        </div>
 
-        <div class="last-name">
-          <mat-form-field appearance="fill">
-            <mat-label> Last Name</mat-label>
-            <input matInput type="text" formControlName="lastName" required>
-          </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label> First Name</mat-label>
+          <input matInput type="text" formControlName="firstName" required>
+          <mat-error *ngIf="signupForm.get('firstName')?.hasError('required')">First Name is required</mat-error>
+        </mat-form-field>
+
+
+
+
+        <mat-form-field appearance="fill">
+          <mat-label> Last Name</mat-label>
+          <input matInput type="text" formControlName="lastName" required>
           <mat-error *ngIf="signupForm.get('lastName')?.hasError('required')">Last Name is required</mat-error>
-        </div>
-        </div>
+        </mat-form-field>
+
+
 
 
       <mat-form-field appearance="fill">
         <mat-label> Email</mat-label>
         <input matInput type="email" formControlName="email" required>
-
+        <mat-error *ngIf="signupForm.get('email')?.hasError('required')">Email is required</mat-error>
+        <mat-error *ngIf="signupForm.get('email')?.hasError('email')">Email should be valid</mat-error>
       </mat-form-field>
-      <mat-error *ngIf="signupForm.get('email')?.hasError('required')">Email is required</mat-error>
-      <mat-error *ngIf="signupForm.get('email')?.hasError('email')">Email should be valid</mat-error>
+
 
       <mat-form-field appearance="fill">
         <mat-label>Enter your password</mat-label>
@@ -39,9 +39,10 @@
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
+        <mat-error *ngIf="signupForm.get('password')?.hasError('required')">Password is required</mat-error>
+        <mat-error *ngIf="signupForm.get('password')?.hasError('minlength')">Minlength of the password is 8 characters</mat-error>
+
       </mat-form-field>
-      <mat-error *ngIf="signupForm.get('password')?.hasError('required')">Password is required</mat-error>
-      <mat-error *ngIf="signupForm.get('password')?.hasError('minlength')">Minlength of the password is 8 characters</mat-error>
 
 
       <mat-form-field appearance="fill">
@@ -50,10 +51,11 @@
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
+        <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('required')">Confirm password is required</mat-error>
+        <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('minlength')">Minlength of the confirm password is 8 characters</mat-error>
+        <mat-error *ngIf="signupForm.hasError('passwordsMisMatch')">Passwords should Match</mat-error>
       </mat-form-field>
-      <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('required')">Confirm password is required</mat-error>
-      <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('minlength')">Minlength of the confirm password is 8 characters</mat-error>
-      <mat-error *ngIf="signupForm.hasError('passwordsMisMatch')">Passwords should Match</mat-error>
+
     </form>
     <button class="login__btn" mat-raised-button color="primary" [disabled]="!signupForm.valid" type="submit" (click)="onSubmit()">SignUp</button>
   </mat-card-content>

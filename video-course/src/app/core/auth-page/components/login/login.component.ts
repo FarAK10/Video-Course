@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,7 +13,11 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private dialog: MatDialog,
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -34,8 +40,14 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      const userInput = this.loginForm.value;
-      this.authService.login(userInput);
+      try {
+        const userInput = this.loginForm.value;
+        this.authService.login(userInput);
+      } catch (err) {
+        if (err instanceof Error) {
+          this.dialog.open(ErrorDialogComponent, { data: err });
+        }
+      }
     }
   }
 }

@@ -14,10 +14,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
 @NgModule({
   declarations: [
     LoginComponent,
     SignupComponent,
+    ErrorDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +34,7 @@ import { RouterModule } from '@angular/router';
     MatInputModule,
     MatIconModule,
     RouterModule,
+    MatDialogModule,
   ],
   exports: [
     LoginComponent,

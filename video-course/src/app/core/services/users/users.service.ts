@@ -10,7 +10,7 @@ export class UsersService {
     return users;
   }
 
-  getUserByEmail(email: string, password: string): IUser | null {
+  checkCredentials(email: string, password: string): IUser | null {
     const user = this.users.find(
       (user: IUser) => user.email === email && user.password === password,
     );
@@ -19,6 +19,29 @@ export class UsersService {
     } else {
       return user;
     }
+  }
+
+  addUser(newUserBody: IUserBody): IUser | null {
+    const isEmailUnique = this.isEmailUnique(newUserBody.email);
+    if (isEmailUnique) {
+      const newUser: IUser = {
+        id: this.users.length + 1,
+        ...newUserBody,
+      };
+      this.users.push(newUser);
+      return newUser;
+    }
+    return null;
+  }
+
+  isEmailUnique(email: string): boolean {
+    let isUnique = true;
+    this.users.forEach((user: IUser) => {
+      if (user.email === email) {
+        isUnique = false;
+      }
+    });
+    return isUnique;
   }
 
   constructor() {}
