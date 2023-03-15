@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

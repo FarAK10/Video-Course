@@ -6,11 +6,12 @@ import { CourseComponent } from '../course/course.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 
-import { DurationPipe } from 'src/app/shared/pipes/duration-pipe/duration.pipe';
-import { FilterPipe } from 'src/app/shared/pipes/filter-pipe/filter.pipe';
-import { OrderByPipe } from 'src/app/shared/pipes/orderBy-pipe/order-by.pipe';
+import { DurationPipe } from 'src/app/core/shared/pipes/duration-pipe/duration.pipe';
+import { FilterPipe } from 'src/app/core/shared/pipes/filter-pipe/filter.pipe';
+import { OrderByPipe } from 'src/app/core/shared/pipes/orderBy-pipe/order-by.pipe';
 
-import { HighlightDirective } from 'src/app/shared/directives/highlight.directive';
+import { HighlightDirective } from 'src/app/core/shared/directives/highlight.directive';
+
 describe('CoursesComponent', () => {
   let component: CoursesComponent;
   let fixture: ComponentFixture<CoursesComponent>;

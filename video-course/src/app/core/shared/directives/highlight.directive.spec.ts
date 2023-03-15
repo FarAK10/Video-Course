@@ -2,7 +2,7 @@ import { HighlightDirective } from './highlight.directive';
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { CourseComponent } from 'src/app/main-page/components/course/course.component';
+import { CourseComponent } from '../../main-page/components/course/course.component';
 import { MatIconModule } from '@angular/material/icon';
 import { DurationPipe } from '../pipes/duration-pipe/duration.pipe';
 import { MatDialogModule } from '@angular/material/dialog';

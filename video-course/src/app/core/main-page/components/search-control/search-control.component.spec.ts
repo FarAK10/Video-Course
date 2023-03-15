@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchControlComponent } from './search-control.component';
 
-import { FilterPipe } from 'src/app/shared/pipes/filter-pipe/filter.pipe';
+import { FilterPipe } from 'src/app/core/shared/pipes/filter-pipe/filter.pipe';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
