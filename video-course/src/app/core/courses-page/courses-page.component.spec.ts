@@ -3,20 +3,20 @@ import { HeaderComponent } from '../shared/components/header/header.component';
 import { CourseComponent } from './components/course/course.component';
 import { SearchControlComponent } from './components/search-control/search-control.component';
 import { CoursesComponent } from './components/courses/courses.component';
-import { MainPageComponent } from './main-page.component';
+import { CoursesPageComponent } from './courses-page.component';
 import { FooterComponent } from '../shared/components/footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
-import { MainPageModule } from './main-page.module';
+import { MainPageModule } from './courses-page.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 describe('MainPageComponent', () => {
-  let component: MainPageComponent;
-  let fixture: ComponentFixture<MainPageComponent>;
+  let component: CoursesPageComponent;
+  let fixture: ComponentFixture<CoursesPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
-        MainPageComponent,
+        CoursesPageComponent,
         HeaderComponent,
         CourseComponent,
         SearchControlComponent,
@@ -30,7 +30,7 @@ describe('MainPageComponent', () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MainPageComponent);
+    fixture = TestBed.createComponent(CoursesPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SearchControlComponent } from './components/search-control/search-control.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { CourseComponent } from './components/course/course.component';
-import { MainPageComponent } from './main-page.component';
+import { CoursesPageComponent } from './courses-page.component';
 import { DeleteDialogComponent } from './components/course/delete-dialog/delete-dialog.component';
 
 import { MatIconModule } from '@angular/material/icon';
@@ -26,7 +26,7 @@ import { HighlightDirective } from '../shared/directives/highlight.directive';
     SearchControlComponent,
     CoursesComponent,
     CourseComponent,
-    MainPageComponent,
+    CoursesPageComponent,
     DurationPipe,
     DeleteDialogComponent,
     OrderByPipe,
@@ -41,8 +41,8 @@ import { HighlightDirective } from '../shared/directives/highlight.directive';
     MatDialogModule,
   ],
   exports: [
-    MainPageComponent,
+    CoursesPageComponent,
   ],
   providers: [FilterPipe],
 })
-export class MainPageModule {}
+export class CoursesPageModule {}
