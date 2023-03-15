@@ -4,13 +4,13 @@
     <h1 class="logo__title">Video Course</h1>
   </div>
   <div class="header__user-auth user-auth">
-    <button class="user-auth_login"routerLink="/login">
+    <button *ngIf="!isLoggedIn" class="user-auth_login"routerLink="/login">
       <mat-icon >account_circle</mat-icon>
       User Login
     </button>
-    <button class="user-auth_logoff">
+    <button *ngIf="isLoggedIn" class="user-auth_logoff" (click)="onLogout()">
       <mat-icon>exit_to_app</mat-icon>
-      User Logoff
+       {{user?.email}}
     </button>
   </div>
 </header>
