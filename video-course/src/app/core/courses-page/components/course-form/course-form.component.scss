@@ -1,29 +1,42 @@
-form {
+.form-course{
   display: flex;
   flex-direction: column;
-  max-width: 500px;
+  align-items: center;
+  max-width: 600px;
   margin: 0 auto;
+  width: 100%;
+  min-height: 600px;
 
-  .mat-form-field {
-    margin-top: 20px;
-    width: 100%;
+  form {
 
-    textarea {
-      min-height: 100px;
-    }
-  }
-
-  .mat-datepicker-toggle {
-    color: #fff;
-  }
-
-  .buttons {
     display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
+    flex-direction: column;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
 
-    button {
-      margin-left: 10px;
+    .mat-form-field {
+      margin-top: 20px;
+      width: 100%;
+
+      textarea {
+        min-height: 100px;
+      }
+    }
+
+    .mat-datepicker-toggle {
+      color: #fff;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+
+      button {
+        margin-left: 10px;
+      }
     }
   }
 }
+

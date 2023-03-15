@@ -8,10 +8,12 @@ const routes: Routes = [
   {
     path: '',
     component: CoursesManagementComponent,
+    title: 'Courses',
   },
   {
     path: 'new',
     component: CourseFormComponent,
+    title: 'New Course',
   },
 ];
 

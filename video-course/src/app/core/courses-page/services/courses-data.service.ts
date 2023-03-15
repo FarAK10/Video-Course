@@ -31,6 +31,14 @@ export class CoursesDataService {
     );
   }
 
+  addCourse(courseBody: ICourseBody): void {
+    const newCourse: ICourse = {
+      id: this.courses.length + 1,
+      ...courseBody,
+    };
+    this.courses.push(newCourse);
+  }
+
   deleteCourse(id: number): void {
     this.courses.forEach((course: ICourse, ind: number) => {
       if (course.id === id) {

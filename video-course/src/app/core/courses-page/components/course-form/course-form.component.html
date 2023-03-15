@@ -1,38 +1,37 @@
-<form>
-  <mat-form-field>
-    <mat-label>Title</mat-label>
-    <input matInput>
-  </mat-form-field>
+<div class="form-course">
+  <h1>Add new Course</h1>
+  <form [formGroup]="courseForm">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title">
+      <mat-error *ngIf="courseForm.get('title')?.invalid && courseForm.get('title')?.touched">Title is required</mat-error>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Description</mat-label>
-    <textarea matInput></textarea>
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea formControlName="description" matInput></textarea>
+      <mat-error *ngIf="courseForm.get('description')?.invalid && courseForm.get('description')?.touched">Description is required</mat-error>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Date</mat-label>
-    <input matInput [matDatepicker]="picker">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="courseForm.get('date')?.invalid && courseForm.get('date')?.touched">Date should be in valid format</mat-error>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Duration (minutes)</mat-label>
-    <input matInput type="number">
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Duration (minutes)</mat-label>
+      <input matInput type="number" formControlName="duration">
+      <mat-error *ngIf="courseForm.get('duration')?.invalid && courseForm.get('description')?.touched">Duration should be more than 0</mat-error>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Authors</mat-label>
-    <input matInput [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let author of authors" [value]="author">
-        {{ author }}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
+    <div class="buttons">
+      <button [disabled]="!courseForm.valid" mat-raised-button color="primary" (click)="addCourse()">Save</button>
+      <button mat-raised-button color="accent"routerLink="../">Cancel</button>
+    </div>
+  </form>
 
-  <div class="buttons">
-    <button mat-raised-button color="primary">Save</button>
-    <button mat-raised-button color="accent">Cancel</button>
-  </div>
-</form>
+</div>
