@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './auth-page/components/login/login.component';
-import { CoursesPageComponent } from './courses-page/courses-page.component';
 import { SignupComponent } from './auth-page/components/signup/signup.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/courses',
+    redirectTo: 'courses',
     pathMatch: 'full',
   },
   {
@@ -20,7 +20,10 @@ const routes: Routes = [
   },
   {
     path: 'courses',
-    component: CoursesPageComponent,
+    loadChildren: () =>
+      import('./courses-page/courses-page.module').then(
+        (m) => m.CoursesPageModule,
+      ),
   },
   {
     path: '**',

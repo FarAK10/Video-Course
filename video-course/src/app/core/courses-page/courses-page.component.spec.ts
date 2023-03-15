@@ -6,7 +6,7 @@ import { CoursesComponent } from './components/courses/courses.component';
 import { CoursesPageComponent } from './courses-page.component';
 import { FooterComponent } from '../shared/components/footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
-import { MainPageModule } from './courses-page.module';
+import { CoursesPageModule } from './courses-page.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 describe('MainPageComponent', () => {
@@ -25,7 +25,7 @@ describe('MainPageComponent', () => {
       ],
       imports: [
         MatIconModule,
-        MainPageModule,
+        CoursesPageModule,
         BrowserAnimationsModule,
       ],
     }).compileComponents();

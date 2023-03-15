@@ -13,6 +13,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatNativeDateModule } from '@angular/material/core';
+
+import { CoursesPageRouterModule } from './courses-page-router.module';
 
 import { DurationPipe } from '../shared/pipes/duration-pipe/duration.pipe';
 import { FilterPipe } from '../shared/pipes/filter-pipe/filter.pipe';
@@ -20,6 +25,8 @@ import { OrderByPipe } from '../shared/pipes/orderBy-pipe/order-by.pipe';
 
 import { HighlightDirective } from '../shared/directives/highlight.directive';
 
+import { CourseFormComponent } from './components/course-form/course-form.component';
+import { CoursesManagementComponent } from './components/courses-management/courses-management.component';
 @NgModule({
   declarations: [
     HighlightDirective,
@@ -30,6 +37,8 @@ import { HighlightDirective } from '../shared/directives/highlight.directive';
     DurationPipe,
     DeleteDialogComponent,
     OrderByPipe,
+    CourseFormComponent,
+    CoursesManagementComponent,
   ],
   imports: [
     CommonModule,
@@ -39,6 +48,10 @@ import { HighlightDirective } from '../shared/directives/highlight.directive';
     MatButtonModule,
     ReactiveFormsModule,
     MatDialogModule,
+    MatDatepickerModule,
+    MatAutocompleteModule,
+    MatNativeDateModule,
+    CoursesPageRouterModule,
   ],
   exports: [
     CoursesPageComponent,

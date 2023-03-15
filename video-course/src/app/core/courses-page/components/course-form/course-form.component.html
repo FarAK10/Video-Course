@@ -1,0 +1,38 @@
+<form>
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea matInput></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Date</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Duration (minutes)</mat-label>
+    <input matInput type="number">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Authors</mat-label>
+    <input matInput [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let author of authors" [value]="author">
+        {{ author }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <div class="buttons">
+    <button mat-raised-button color="primary">Save</button>
+    <button mat-raised-button color="accent">Cancel</button>
+  </div>
+</form>

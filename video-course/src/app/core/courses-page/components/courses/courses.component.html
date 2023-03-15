@@ -1,6 +1,6 @@
 <div class="courses">
   <div class="add-course">
-    <button mat-button class="add-course__btn"><mat-icon>add</mat-icon>Add course</button>
+    <button mat-button class="add-course__btn" routerLink = './new' ><mat-icon>add</mat-icon>Add course</button>
   </div>
   <div class="courses__filtered" *ngIf="filteredCourses.length>0">
     <app-course *ngFor="let course of filteredCourses  |orderBy" [course]="course"></app-course>
