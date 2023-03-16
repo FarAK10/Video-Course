@@ -13,7 +13,7 @@ export class CourseComponent implements OnChanges {
     description: '',
     duration: 10,
     title: '',
-    isTopRated:false
+    isTopRated: false,
   };
 
   date: Date = new Date();

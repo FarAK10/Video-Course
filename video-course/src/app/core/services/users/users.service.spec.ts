@@ -34,7 +34,7 @@ describe('UsersService', () => {
     });
 
     it('should return a user object if email and password are correct', () => {
-      const result = service.checkCredentials('user1@test.com', 'password1');
+      const result = service.checkCredentials('far@gmail.com', '12345678');
 
       expect(result).toEqual(users[0]);
     });
@@ -42,6 +42,7 @@ describe('UsersService', () => {
 
   describe('addUser', () => {
     it('should add a new user if email is unique', () => {
+      service['users'] = [];
       const newUser: IUserBody = {
         firstName: 'New User',
         lastName: 'botirov',
@@ -50,7 +51,7 @@ describe('UsersService', () => {
       };
       const result = service.addUser(newUser);
 
-      expect(result).toEqual({ id: 4, ...newUser });
+      expect(result).toEqual({ id: 1, ...newUser });
     });
 
     it('should return null if email is not unique', () => {
@@ -69,7 +70,7 @@ describe('UsersService', () => {
     });
 
     it('should return false if email is not unique', () => {
-      const result = service.isEmailUnique('user1@test.com');
+      const result = service.isEmailUnique('far@gmail.com');
 
       expect(result).toBe(false);
     });

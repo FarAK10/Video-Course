@@ -32,7 +32,7 @@ export class CoursesDataService {
   }
 
   getCourseById(id: number): ICourse | null {
-    const course = this.courses.find((course: ICourse) => (course.id === id));
+    const course = this.courses.find((course: ICourse) => course.id === id);
     if (!course) return null;
     return course;
   }
@@ -45,9 +45,11 @@ export class CoursesDataService {
     this.courses.push(newCourse);
   }
 
-  editCourse(updatedCourse:ICourse):void{
-    const ind = this.courses.findIndex((course:ICourse)=>course.id===updatedCourse.id)
-    this.courses[ind] = updatedCourse
+  editCourse(updatedCourse: ICourse): void {
+    const ind = this.courses.findIndex(
+      (course: ICourse) => course.id === updatedCourse.id,
+    );
+    this.courses[ind] = updatedCourse;
   }
 
   deleteCourse(id: number): void {

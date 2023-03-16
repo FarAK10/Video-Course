@@ -12,6 +12,15 @@ import { OrderByPipe } from 'src/app/core/shared/pipes/orderBy-pipe/order-by.pip
 
 import { HighlightDirective } from 'src/app/core/shared/directives/highlight.directive';
 
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { ActivatedRoute } from '@angular/router';
+
+import { convertToParamMap } from '@angular/router';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { CoursesPageModule } from '../../courses-page.module';
 describe('CoursesComponent', () => {
   let component: CoursesComponent;
   let fixture: ComponentFixture<CoursesComponent>;
@@ -25,10 +34,19 @@ describe('CoursesComponent', () => {
         DurationPipe,
         OrderByPipe,
       ],
-      providers: [FilterPipe],
+      providers: [
+        FilterPipe,
+        {
+          provide: ActivatedRoute,
+          useValue: { paramMap: convertToParamMap({ id: '1' }) },
+        },
+      ],
       imports: [
         MatIconModule,
         MatDialogModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        CoursesPageModule,
       ],
     }).compileComponents();
 

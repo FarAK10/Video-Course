@@ -10,7 +10,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { CoursesPageModule } from '../../courses-page.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
 describe('CoursesManagementComponent', () => {
   let component: CoursesManagementComponent;
   let fixture: ComponentFixture<CoursesManagementComponent>;
@@ -27,6 +29,8 @@ describe('CoursesManagementComponent', () => {
         MatIconModule,
         CoursesPageModule,
         BrowserAnimationsModule,
+        RouterModule.forRoot([]),
+        MatFormFieldModule,
       ],
     }).compileComponents();
 

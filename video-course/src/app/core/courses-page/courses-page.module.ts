@@ -16,7 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { CoursesPageRouterModule } from './courses-page-router.module';
 
@@ -57,7 +57,7 @@ import { EditCourseComponent } from './components/edit-course/edit-course.compon
     MatAutocompleteModule,
     MatNativeDateModule,
     CoursesPageRouterModule,
-    MatCheckboxModule
+    MatCheckboxModule,
   ],
   exports: [
     CoursesPageComponent,

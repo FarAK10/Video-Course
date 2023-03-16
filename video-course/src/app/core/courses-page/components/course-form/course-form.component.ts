@@ -1,22 +1,36 @@
-import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-course-form',
   templateUrl: './course-form.component.html',
   styleUrls: ['./course-form.component.scss'],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CourseFormComponent implements OnInit {
   courseForm!: FormGroup;
 
-  @Input() course!: ICourseBody
+  @Input() course: ICourseBody = {
+    date: '',
+    title: '',
+    description: '',
+    duration: 0,
+    isTopRated: false,
+  };
+
   @Output() courseFormChange = new EventEmitter<FormGroup>();
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    console.log(this.course)
+    console.log(this.course);
     this.courseForm = this.fb.group({
       title: [
         this.course.title,
@@ -39,18 +53,16 @@ export class CourseFormComponent implements OnInit {
           Validators.min(0),
         ],
       ],
-      isTopRated:[
+      isTopRated: [
         this.course.isTopRated,
-      ]
+      ],
     });
-    this.onChange()
-    console.log(this.course)
-
+    this.onChange();
+    console.log(this.course);
   }
 
   onChange() {
-    console.log(this.courseForm.value)
+    console.log(this.courseForm.value);
     this.courseFormChange.emit(this.courseForm);
-
   }
 }

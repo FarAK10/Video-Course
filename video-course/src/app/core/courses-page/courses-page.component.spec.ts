@@ -9,10 +9,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { CoursesPageModule } from './courses-page.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Router, RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+
+import { ActivatedRoute } from '@angular/router';
+import { of, BehaviorSubject } from 'rxjs';
 describe('MainPageComponent', () => {
   let component: CoursesPageComponent;
   let fixture: ComponentFixture<CoursesPageComponent>;
-
+  const activatedRouteStub = {
+    paramMap: new BehaviorSubject({
+      get: (key: string) => '1',
+    }),
+  };
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
@@ -27,6 +36,14 @@ describe('MainPageComponent', () => {
         MatIconModule,
         CoursesPageModule,
         BrowserAnimationsModule,
+        RouterModule.forChild([]),
+        RouterTestingModule,
+      ],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: activatedRouteStub,
+        },
       ],
     }).compileComponents();
 
