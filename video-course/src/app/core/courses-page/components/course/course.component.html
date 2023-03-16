@@ -15,7 +15,7 @@
     <p class="course__description">{{ course.description }}</p>
   </div>
   <div class="course__controllers controllers">
-    <button mat-button class="controllers__edit"><mat-icon>create</mat-icon>Edit</button>
+    <button mat-button class="controllers__edit" [routerLink]="[id]"><mat-icon>create</mat-icon>Edit</button>
     <button mat-button (click)="openDialog('300ms', '300ms')" class="controllers__delete"><mat-icon>delete</mat-icon>Delete</button>
   </div>
 </div>

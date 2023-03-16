@@ -13,13 +13,17 @@ export class CourseComponent implements OnChanges {
     description: '',
     duration: 10,
     title: '',
+    isTopRated:false
   };
 
   date: Date = new Date();
 
+  id!: string;
+
   constructor(public dialog: MatDialog) {}
 
   ngOnChanges(changes: SimpleChanges): void {
+    this.id = this.course.id.toString();
     this.date = new Date(this.course.date);
   }
 

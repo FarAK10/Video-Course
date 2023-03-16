@@ -1,55 +1,56 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CoursesDataService } from '../../services/courses-data.service';
-import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-course-form',
   templateUrl: './course-form.component.html',
   styleUrls: ['./course-form.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class CourseFormComponent implements OnInit {
-  authors = [
-    'John',
-    'Andrew',
-  ];
-
   courseForm!: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    private couresDataService: CoursesDataService,
-    private router: Router,
-  ) {}
+  @Input() course!: ICourseBody
+  @Output() courseFormChange = new EventEmitter<FormGroup>();
+
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
+    console.log(this.course)
     this.courseForm = this.fb.group({
       title: [
-        '',
+        this.course.title,
         [Validators.required],
       ],
       description: [
-        '',
+        this.course.description,
         [Validators.required],
       ],
       date: [
-        new Date(),
+        new Date(this.course.date),
         [
           Validators.required,
         ],
       ],
       duration: [
-        0,
+        this.course.duration,
         [
           Validators.required,
           Validators.min(0),
         ],
       ],
+      isTopRated:[
+        this.course.isTopRated,
+      ]
     });
+    this.onChange()
+    console.log(this.course)
+
   }
 
-  addCourse() {
-    const course: ICourseBody = this.courseForm.value;
-    this.couresDataService.addCourse(course);
-    this.router.navigate(['../']);
+  onChange() {
+    console.log(this.courseForm.value)
+    this.courseFormChange.emit(this.courseForm);
+
   }
 }

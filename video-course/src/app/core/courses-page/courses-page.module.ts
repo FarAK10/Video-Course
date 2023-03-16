@@ -16,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { CoursesPageRouterModule } from './courses-page-router.module';
 
@@ -27,6 +28,8 @@ import { HighlightDirective } from '../shared/directives/highlight.directive';
 
 import { CourseFormComponent } from './components/course-form/course-form.component';
 import { CoursesManagementComponent } from './components/courses-management/courses-management.component';
+import { AddCourseComponent } from './components/add-course/add-course.component';
+import { EditCourseComponent } from './components/edit-course/edit-course.component';
 @NgModule({
   declarations: [
     HighlightDirective,
@@ -39,6 +42,8 @@ import { CoursesManagementComponent } from './components/courses-management/cour
     OrderByPipe,
     CourseFormComponent,
     CoursesManagementComponent,
+    AddCourseComponent,
+    EditCourseComponent,
   ],
   imports: [
     CommonModule,
@@ -52,6 +57,7 @@ import { CoursesManagementComponent } from './components/courses-management/cour
     MatAutocompleteModule,
     MatNativeDateModule,
     CoursesPageRouterModule,
+    MatCheckboxModule
   ],
   exports: [
     CoursesPageComponent,

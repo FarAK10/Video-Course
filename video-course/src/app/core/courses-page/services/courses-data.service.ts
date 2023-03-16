@@ -31,12 +31,23 @@ export class CoursesDataService {
     );
   }
 
+  getCourseById(id: number): ICourse | null {
+    const course = this.courses.find((course: ICourse) => (course.id === id));
+    if (!course) return null;
+    return course;
+  }
+
   addCourse(courseBody: ICourseBody): void {
     const newCourse: ICourse = {
       id: this.courses.length + 1,
       ...courseBody,
     };
     this.courses.push(newCourse);
+  }
+
+  editCourse(updatedCourse:ICourse):void{
+    const ind = this.courses.findIndex((course:ICourse)=>course.id===updatedCourse.id)
+    this.courses[ind] = updatedCourse
   }
 
   deleteCourse(id: number): void {
