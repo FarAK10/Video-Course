@@ -30,7 +30,6 @@ export class CourseFormComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    console.log(this.course);
     this.courseForm = this.fb.group({
       title: [
         this.course.title,
@@ -58,11 +57,9 @@ export class CourseFormComponent implements OnInit {
       ],
     });
     this.onChange();
-    console.log(this.course);
   }
 
   onChange() {
-    console.log(this.courseForm.value);
     this.courseFormChange.emit(this.courseForm);
   }
 }

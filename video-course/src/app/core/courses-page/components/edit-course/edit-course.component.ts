@@ -28,13 +28,10 @@ export class EditCourseComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.pipe(take(1)).subscribe((params) => {
-      console.log(params);
       const courseId = parseInt(params.get('id') as string);
       const course = this.coursesDataService.getCourseById(courseId);
-      console.log(course, 'course id');
-      this.setCourse(course);
 
-      console.log(courseId, 'id');
+      this.setCourse(course);
     });
   }
 
