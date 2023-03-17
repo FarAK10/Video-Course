@@ -25,7 +25,7 @@ export class AuthService {
       console.log(this.isLoggedIn);
       this.currentUser$.next(this.currentUser);
     } else {
-      throw new Error('Incorect email or password');
+      throw new Error('Incorrect email or password');
     }
   }
 
@@ -46,6 +46,7 @@ export class AuthService {
   }
 
   getCurrentUser$(): Observable<IUser | null> {
+    this.currentUser$.next(this.currentUser);
     return this.currentUser$;
   }
 }
