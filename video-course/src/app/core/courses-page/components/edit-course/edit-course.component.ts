@@ -52,7 +52,6 @@ export class EditCourseComponent implements OnInit {
   setCourse(course: ICourse | null) {
     if (course) {
       this.course = course;
-      console.log(course);
     } else {
       window.alert('there is no course with such id');
       this.router.navigate(['../']);
