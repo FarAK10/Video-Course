@@ -2,12 +2,15 @@
 
 .footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
   align-items: center;
   padding: 20px 40px;
   background-color: $dark;
   box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.05);
 
+  .github {
+    width: 70px;
+  }
   .copyright {
     color: white;
   }
