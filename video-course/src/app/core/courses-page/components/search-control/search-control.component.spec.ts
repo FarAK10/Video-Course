@@ -11,6 +11,8 @@ import { MatFormFieldControl } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { StoreModule } from '@ngrx/store';
 describe('SearchControlComponent', () => {
   let component: SearchControlComponent;
   let fixture: ComponentFixture<SearchControlComponent>;
@@ -25,6 +27,7 @@ describe('SearchControlComponent', () => {
         MatButtonModule,
         BrowserAnimationsModule,
         ReactiveFormsModule,
+        StoreModule.forRoot({}),
       ],
       providers: [
         { provide: MatFormFieldControl, useExisting: SearchControlComponent },

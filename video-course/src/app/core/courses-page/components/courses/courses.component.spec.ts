@@ -21,6 +21,7 @@ import { convertToParamMap } from '@angular/router';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CoursesPageModule } from '../../courses-page.module';
+import { StoreModule } from '@ngrx/store';
 describe('CoursesComponent', () => {
   let component: CoursesComponent;
   let fixture: ComponentFixture<CoursesComponent>;
@@ -47,6 +48,7 @@ describe('CoursesComponent', () => {
         ReactiveFormsModule,
         MatFormFieldModule,
         CoursesPageModule,
+        StoreModule.forRoot({}),
       ],
     }).compileComponents();
 

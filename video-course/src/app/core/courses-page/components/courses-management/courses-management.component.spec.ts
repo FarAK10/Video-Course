@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { StoreModule } from '@ngrx/store';
 describe('CoursesManagementComponent', () => {
   let component: CoursesManagementComponent;
   let fixture: ComponentFixture<CoursesManagementComponent>;
@@ -30,8 +31,10 @@ describe('CoursesManagementComponent', () => {
         CoursesPageModule,
         BrowserAnimationsModule,
         RouterModule.forRoot([]),
+        StoreModule.forRoot({}),
         MatFormFieldModule,
       ],
+      providers: [],
     }).compileComponents();
 
     fixture = TestBed.createComponent(CoursesManagementComponent);

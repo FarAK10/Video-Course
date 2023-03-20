@@ -52,7 +52,9 @@ export class CourseComponent implements OnChanges, OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.storeSub.unsubscribe();
+    if (this.storeSub) {
+      this.storeSub.unsubscribe();
+    }
   }
 
   openDialog(

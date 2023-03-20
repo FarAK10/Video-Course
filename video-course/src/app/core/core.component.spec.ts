@@ -4,6 +4,8 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { CoreComponent } from './core.component';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+
+import { StoreModule } from '@ngrx/store';
 describe('CoreComponent', () => {
   let component: CoreComponent;
   let fixture: ComponentFixture<CoreComponent>;
@@ -17,6 +19,7 @@ describe('CoreComponent', () => {
       ],
       imports: [
         RouterModule.forRoot([]),
+        StoreModule.forRoot({}),
         MatIconModule,
       ],
     }).compileComponents();

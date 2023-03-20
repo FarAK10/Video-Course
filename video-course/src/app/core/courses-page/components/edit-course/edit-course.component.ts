@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CoursesDataService } from '../../services/courses-data.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormGroup } from '@angular/forms';
@@ -11,7 +11,7 @@ import { editCourseItemFormSubmitted } from 'src/app/core/state/courses';
   templateUrl: './edit-course.component.html',
   styleUrls: ['./edit-course.component.scss'],
 })
-export class EditCourseComponent implements OnInit {
+export class EditCourseComponent implements OnInit, OnDestroy {
   course: ICourse = {
     date: '',
     description: '',
@@ -24,6 +24,8 @@ export class EditCourseComponent implements OnInit {
 
   courseForm!: FormGroup;
 
+  sub!: Subscription;
+
   constructor(
     private coursesDataService: CoursesDataService,
     private router: Router,
@@ -32,9 +34,8 @@ export class EditCourseComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap
+    this.sub = this.route.paramMap
       .pipe(
-        take(1),
         switchMap((params) => {
           const courseId = parseInt(params.get('id') as string);
           return this.store.select(selectCourseItem({ id: courseId }));
@@ -44,6 +45,10 @@ export class EditCourseComponent implements OnInit {
         const course = currentCourse;
         this.setCourse(course);
       });
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
   editCourse(): void {

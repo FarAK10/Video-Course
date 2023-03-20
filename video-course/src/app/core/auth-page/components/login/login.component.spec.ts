@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 
+import { StoreModule } from '@ngrx/store';
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
@@ -31,6 +32,7 @@ describe('LoginComponent', () => {
         MatInputModule,
         MatIconModule,
         RouterModule.forRoot([]),
+        StoreModule.forRoot({}),
         MatDialogModule,
       ],
       providers: [],

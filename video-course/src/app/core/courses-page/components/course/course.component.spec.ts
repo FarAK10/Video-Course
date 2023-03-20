@@ -12,6 +12,9 @@ import { ActivatedRoute } from '@angular/router';
 import { convertToParamMap } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { Store } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
 describe('CourseComponent', () => {
   let component: CourseComponent;
   let fixture: ComponentFixture<CourseComponent>;
@@ -29,8 +32,10 @@ describe('CourseComponent', () => {
         RouterModule,
         MatFormFieldModule,
         ReactiveFormsModule,
+        StoreModule.forRoot({}),
       ],
       providers: [
+        Store,
         {
           provide: ActivatedRoute,
           useValue: {

@@ -6,6 +6,7 @@ export const mockCourses: ICourse[] = [
     date: '2022-03-16',
     description: 'This is course 1',
     isTopRated: true,
+    isDeleted: false,
   },
   {
     id: 2,
@@ -14,5 +15,6 @@ export const mockCourses: ICourse[] = [
     date: '2022-03-17',
     description: 'This is course 2',
     isTopRated: false,
+    isDeleted: false,
   },
 ];

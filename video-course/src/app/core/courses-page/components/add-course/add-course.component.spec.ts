@@ -12,6 +12,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CoursesPageModule } from '../../courses-page.module';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { StoreModule } from '@ngrx/store';
 describe('AddCourseComponent', () => {
   let component: AddCourseComponent;
   let fixture: ComponentFixture<AddCourseComponent>;
@@ -22,7 +24,9 @@ describe('AddCourseComponent', () => {
         AddCourseComponent,
         CourseFormComponent,
       ],
-      providers: [FilterPipe],
+      providers: [
+        FilterPipe,
+      ],
       imports: [
         CoursesPageModule,
         MatFormFieldModule,
@@ -32,6 +36,7 @@ describe('AddCourseComponent', () => {
         MatCheckboxModule,
         RouterModule.forRoot([]),
         BrowserAnimationsModule,
+        StoreModule.forRoot({}),
       ],
     }).compileComponents();
 

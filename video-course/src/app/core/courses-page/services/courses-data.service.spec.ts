@@ -9,6 +9,7 @@ const newCourse: ICourseBody = {
   description: '',
   duration: 20,
   isTopRated: false,
+  isDeleted: false,
 };
 describe('CoursesService', () => {
   let service: CoursesDataService;
@@ -53,6 +54,7 @@ describe('CoursesService', () => {
       date: '2022-03-16',
       description: 'This is a new course',
       isTopRated: false,
+      isDeleted: false,
     };
     service.addCourse(newCourse);
 
@@ -68,6 +70,7 @@ describe('CoursesService', () => {
       date: '2022-03-16',
       description: 'This course has been updated',
       isTopRated: true,
+      isDeleted: false,
     };
     service.editCourse(updatedCourse);
     const course = service.getCourseById(updatedCourse.id);

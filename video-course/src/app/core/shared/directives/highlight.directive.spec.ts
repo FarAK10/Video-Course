@@ -8,6 +8,8 @@ import { DurationPipe } from '../pipes/duration-pipe/duration.pipe';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CoursesPageModule } from '../../courses-page/courses-page.module';
+
+import { StoreModule } from '@ngrx/store';
 describe('HighlightDirective', () => {
   let fixture: ComponentFixture<CourseComponent>;
   let debugElement: DebugElement;
@@ -23,6 +25,7 @@ describe('HighlightDirective', () => {
         RouterTestingModule,
         MatDialogModule,
         CoursesPageModule,
+        StoreModule.forRoot({}),
       ],
     }).compileComponents();
 
