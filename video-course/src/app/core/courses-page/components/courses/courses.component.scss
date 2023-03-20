@@ -1,0 +1,32 @@
+@import '../../../shared/styles/colors.scss';
+@import '../../../shared/styles/buttons.scss';
+
+.courses {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-height: 750px;
+  gap: 40px;
+
+  .add-course {
+    display: flex;
+    justify-content: flex-end;
+
+    &__btn {
+      @include blue-button;
+    }
+  }
+
+  .load-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: white;
+
+    &__btn {
+      @include blue-button;
+    }
+  }
+}

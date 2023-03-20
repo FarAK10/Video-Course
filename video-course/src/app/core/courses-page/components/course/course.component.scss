@@ -1,0 +1,72 @@
+@import '../../../shared/styles/buttons.scss';
+.course {
+  display: flex;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 1000px;
+
+  &__about {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 700px;
+    width: 100%;
+  }
+  &__title {
+    display: flex;
+    align-items: center;
+    margin: 0;
+
+    .star {
+      color: yellow;
+    }
+  }
+
+  &__top-content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__description {
+    color: rgb(71, 71, 71);
+    text-indent: 1;
+  }
+
+  &__date-time {
+    display: flex;
+    justify-content: space-between;
+    max-width: 200px;
+    width: 100%;
+
+    .date,
+    .duration {
+      display: flex;
+      align-items: center;
+      color: rgb(167, 165, 165);
+    }
+  }
+
+  &__controllers {
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .controllers {
+    &__edit,
+    &__delete {
+      @include blue-button;
+    }
+  }
+}
+
+.top-rated {
+  background-color: rgb(231, 207, 247);
+}

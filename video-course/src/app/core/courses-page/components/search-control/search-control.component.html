@@ -1,0 +1,14 @@
+<div class="search-container">
+  <mat-form-field>
+    <mat-icon matPrefix>search</mat-icon>
+    <input
+      [formControl]="searchControl"
+      matInput
+      type="text"
+      placeholder="Search"
+      class="search-input"
+      name="searchInput"
+    />
+  </mat-form-field>
+  <button mat-raised-button color="primary" class="search-btn" (click)="onSearch()">Search</button>
+</div>

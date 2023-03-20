@@ -1,0 +1,16 @@
+<header class="header">
+  <div routerLink="/courses" class="header__logo logo">
+    <mat-icon class="logo__icon">play_circle_filled</mat-icon>
+    <h1 class="logo__title">Video Course</h1>
+  </div>
+  <div class="header__user-auth user-auth">
+    <button *ngIf="!isLoggedIn" class="user-auth_login"routerLink="/login">
+      <mat-icon >account_circle</mat-icon>
+      User Login
+    </button>
+    <button *ngIf="isLoggedIn" class="user-auth_logoff" (click)="onLogout()">
+      <mat-icon>exit_to_app</mat-icon>
+       {{user?.email}}
+    </button>
+  </div>
+</header>

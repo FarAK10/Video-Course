@@ -1,0 +1,32 @@
+<mat-card class="login">
+  <mat-card-header class="login__header header">
+    <mat-card-title class="header___title">Login</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="login__content content">
+    <form [formGroup]="loginForm" class="login__form">
+      <mat-form-field appearance="fill">
+        <mat-label> Email</mat-label>
+        <input matInput type="email" formControlName="email" required>
+        <mat-error *ngIf="loginForm.get('email')?.hasError('required')">Email is required</mat-error>
+      <mat-error *ngIf="loginForm.get('email')?.hasError('email')">Email should be valid</mat-error>
+
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput type="password"  formControlName="password" [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password is required</mat-error>
+        <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">Minlength of the password is 8 characters</mat-error>
+
+      </mat-form-field>
+
+    </form>
+    <button class="login__btn" mat-raised-button color="primary" [disabled]="!loginForm.valid" type="submit" (click)="onSubmit()">Login</button>
+  </mat-card-content>
+  <a routerLink="/signup"  >Haven't account yet? Try to SignUp</a>
+</mat-card>
+
+

@@ -1,0 +1,12 @@
+<div class="form-course">
+  <h1>Edit Course</h1>
+  <div class="form">
+    <app-course-form (courseFormChange)="setCourseForm($event)" [course]="course"></app-course-form>
+
+  </div>
+  <div class="buttons">
+    <button [disabled]="!courseForm.valid" mat-raised-button color="primary" (click)="editCourse()">Edit</button>
+    <button mat-raised-button color="accent"routerLink="../">Cancel</button>
+  </div>
+</div>
+

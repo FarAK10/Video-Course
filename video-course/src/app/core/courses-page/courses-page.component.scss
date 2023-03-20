@@ -1,0 +1,33 @@
+@import '../shared/styles/colors.scss';
+@import '../shared/styles/buttons.scss';
+
+.main {
+  padding: 0 40px;
+
+  .bread-scrumb {
+    background-color: white;
+  }
+
+  .courses-management {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: $grey;
+    padding: 20px 0;
+
+
+
+    .app-search-wrapper {
+      margin-left: 20px;
+    }
+
+    .courses-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 0 auto;
+
+
+    }
+  }
+}
