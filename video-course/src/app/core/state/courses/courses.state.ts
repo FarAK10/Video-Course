@@ -6,6 +6,6 @@ export interface CoursesState {
 }
 
 export const initialState: CoursesState = {
-  courses: courses,
+  courses: courses.slice(),
   searchInput: '',
 };

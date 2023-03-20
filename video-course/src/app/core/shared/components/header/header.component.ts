@@ -19,9 +19,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(private authService: AuthService, private store: Store) {}
 
   onLogout() {
-    localStorage.removeItem('courses');
-    localStorage.removeItem('users');
     this.store.dispatch(logoutButtonPressed());
+    localStorage.removeItem('courses');
+    window.location.reload();
   }
 
   ngOnInit(): void {
