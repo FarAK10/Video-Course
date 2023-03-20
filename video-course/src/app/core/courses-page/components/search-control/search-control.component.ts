@@ -2,7 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Subscription, debounceTime, distinctUntilChanged } from 'rxjs';
 import { CoursesDataService } from '../../services/courses-data.service';
-
+import { Store } from '@ngrx/store';
+import { searchInputSubmitted } from 'src/app/core/state/courses';
 @Component({
   selector: 'app-search-control',
   templateUrl: './search-control.component.html',
@@ -15,13 +16,18 @@ export class SearchControlComponent implements OnInit, OnDestroy {
 
   searchContorlSub!: Subscription;
 
-  constructor(private coursesDataService: CoursesDataService) {}
+  constructor(
+    private coursesDataService: CoursesDataService,
+    private store: Store,
+  ) {}
 
   ngOnInit() {
     this.searchContorlSub = this.searchControl.valueChanges
       .pipe(debounceTime(250), distinctUntilChanged())
       .subscribe((searchString) => {
-        this.coursesDataService.setSearchTerm(searchString);
+        this.store.dispatch(
+          searchInputSubmitted({ searchInput: searchString }),
+        );
       });
   }
 

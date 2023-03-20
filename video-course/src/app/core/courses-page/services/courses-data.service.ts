@@ -31,6 +31,10 @@ export class CoursesDataService {
     );
   }
 
+  filterCourses(courses: ICourse[], searchTerm: string = ''): ICourse[] {
+    return this.filterPipe.transform(courses, searchTerm);
+  }
+
   getCourseById(id: number): ICourse | null {
     const course = this.courses.find((course: ICourse) => course.id === id);
     if (!course) return null;

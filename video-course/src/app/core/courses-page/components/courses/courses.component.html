@@ -3,12 +3,12 @@
     <button mat-button class="add-course__btn" routerLink = './new' ><mat-icon>add</mat-icon>Add course</button>
   </div>
   <div class="courses__filtered" *ngIf="filteredCourses.length>0">
-    <app-course *ngFor="let course of filteredCourses  |orderBy" [course]="course"></app-course>
+    <app-course *ngFor="let course of filteredCourses  " [course]="course"></app-course>
     <div class="load-more">
       <button mat-button class="load-more__btn">
         <mat-icon>cloud_download</mat-icon> Load More
       </button>
     </div>
-  </div> <!-- This is the corrected closing tag for the div -->
+  </div>
   <h3 class="courses__empty-title" *ngIf="filteredCourses.length===0">No data, feel free to add New Course!</h3>
 </div>
