@@ -9,9 +9,13 @@ export const selectCoursesItems = createSelector(
 );
 
 export const selectCourseItem = (props: { id: number }) =>
-  createSelector(selectCoursesItems, (courseItems: ICourse[]) =>
-    courseItems.find((course) => course.id === props.id),
-  );
+  createSelector(selectCoursesItems, (courseItems: ICourse[]) => {
+    const course = courseItems.find((course) => course.id === props.id);
+    if (course) {
+      return course;
+    }
+    return null;
+  });
 
 export const selectSearchInputValue = createSelector(
   selectCourses,

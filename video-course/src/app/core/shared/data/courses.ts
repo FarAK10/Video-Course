@@ -7,6 +7,7 @@ export const courses: ICourse[] = [
     duration: 80,
     title: 'Video Course 1',
     isTopRated: false,
+    isDeleted: false,
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const courses: ICourse[] = [
     duration: 120,
     title: 'Video Course 2',
     isTopRated: true,
+    isDeleted: false,
   },
   {
     id: 3,
@@ -25,5 +27,6 @@ export const courses: ICourse[] = [
     duration: 50,
     title: 'Video Course 3',
     isTopRated: false,
+    isDeleted: false,
   },
 ];

@@ -23,6 +23,7 @@ export class CourseFormComponent implements OnInit {
     description: '',
     duration: 0,
     isTopRated: false,
+    isDeleted: false,
   };
 
   @Output() courseFormChange = new EventEmitter<FormGroup>();

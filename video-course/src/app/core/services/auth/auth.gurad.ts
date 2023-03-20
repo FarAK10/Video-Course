@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import {
   CanActivate,
   ActivatedRouteSnapshot,
@@ -8,13 +8,26 @@ import {
 } from '@angular/router';
 
 import { AuthService } from './auth.service';
-import { Observable, flatMap } from 'rxjs';
+import { Observable, Subscription, flatMap } from 'rxjs';
+import { Store } from '@ngrx/store';
+import {
+  selectIsUserLoggedIn,
+  selectUsersCurrentItem,
+} from '../../state/user/user.selector';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+export class AuthGuard implements CanActivate, OnDestroy {
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private store: Store,
+  ) {}
+
+  storeSub!: Subscription;
+
+  isLoggedIn!: boolean;
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -24,11 +37,20 @@ export class AuthGuard implements CanActivate {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
-    if (this.authService.isLoggedIn) {
+    this.storeSub = this.store
+      .select(selectIsUserLoggedIn)
+      .subscribe((isLogged) => {
+        this.isLoggedIn = isLogged;
+      });
+    if (this.isLoggedIn) {
       return true;
     } else {
       this.router.navigate(['/signup']);
       return false;
     }
+  }
+
+  ngOnDestroy(): void {
+    this.storeSub.unsubscribe();
   }
 }

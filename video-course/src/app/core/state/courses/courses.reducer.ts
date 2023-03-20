@@ -3,9 +3,14 @@ import * as CoursesActions from './courses.actions';
 import { initialState, CoursesState } from './courses.state';
 import { isEqualCheck } from '@ngrx/store/src/selector';
 import { courses } from '../../shared/data/courses';
-
+import { getFromLocalStorage } from '../helpers/getFromLocalStorage';
+const localInitialState = getFromLocalStorage('courses');
+let coursesState;
+if (localInitialState) {
+  coursesState = JSON.parse(localInitialState) as CoursesState;
+}
 const coursesReducer = createReducer(
-  initialState,
+  coursesState || initialState,
   on(CoursesActions.addCourseItemFormSubmitted, (state, { courseBody }) => {
     const newCourse = {
       ...courseBody,
@@ -25,7 +30,13 @@ const coursesReducer = createReducer(
       (item: ICourse) => item.id === id,
     );
     const updatedCourses = [...state.courses];
-    updatedCourses.splice(courseItemIndex, 1);
+    const course = {
+      ...updatedCourses[courseItemIndex],
+      isDeleted: true,
+    };
+    updatedCourses.splice(courseItemIndex, 1, course);
+
+    updatedCourses[courseItemIndex].isDeleted = true;
     return {
       ...state,
       courses: updatedCourses,

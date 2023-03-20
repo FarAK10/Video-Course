@@ -7,6 +7,7 @@ export const mockCourses: ICourse[] = [
     duration: 80,
     title: 'Angular Fundamentals',
     isTopRated: true,
+    isDeleted: false,
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const mockCourses: ICourse[] = [
     duration: 120,
     title: 'React Basics',
     isTopRated: true,
+    isDeleted: false,
   },
   {
     id: 3,
@@ -25,5 +27,6 @@ export const mockCourses: ICourse[] = [
     duration: 50,
     title: 'Vue Essentials',
     isTopRated: false,
+    isDeleted: false,
   },
 ];

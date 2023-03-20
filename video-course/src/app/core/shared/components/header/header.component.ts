@@ -1,6 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { logoutButtonPressed } from 'src/app/core/state/user/user.actions';
+import { selectUsersCurrentItem } from 'src/app/core/state/user/user.selector';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -13,15 +16,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   userSub!: Subscription;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private store: Store) {}
 
   onLogout() {
-    this.authService.logout();
+    localStorage.removeItem('courses');
+    localStorage.removeItem('users');
+    this.store.dispatch(logoutButtonPressed());
   }
 
   ngOnInit(): void {
-    this.userSub = this.authService
-      .getCurrentUser$()
+    this.userSub = this.store
+      .select(selectUsersCurrentItem)
       .subscribe((user: IUser | null) => {
         if (user) {
           this.isLoggedIn = true;

@@ -4,6 +4,7 @@ interface ICourseBody {
   date: string;
   description: string;
   isTopRated: boolean;
+  isDeleted: boolean;
 }
 interface ICourse extends ICourseBody {
   id: number;

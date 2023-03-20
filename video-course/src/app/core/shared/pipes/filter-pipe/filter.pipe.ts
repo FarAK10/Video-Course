@@ -10,7 +10,7 @@ export class FilterPipe implements PipeTransform {
       if (searchText === 'angular') {
         console.log(course);
       }
-      return regex.test(course.title);
+      return regex.test(course.title) && course.isDeleted === false;
     });
   }
 }

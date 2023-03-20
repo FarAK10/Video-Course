@@ -5,6 +5,8 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
+import { Store } from '@ngrx/store';
+import { signUpFormSubmitted } from 'src/app/core/state/user/user.actions';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -20,6 +22,7 @@ export class SignupComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private dialog: MatDialog,
+    private store: Store,
   ) {}
 
   ngOnInit(): void {
@@ -62,7 +65,7 @@ export class SignupComponent implements OnInit {
   onSubmit() {
     const userBody: IUserBody = this.signupForm.value;
     try {
-      this.authService.signUp(userBody);
+      this.store.dispatch(signUpFormSubmitted({ userBody }));
       this.router.navigate(['/courses']);
     } catch (err) {
       if (err instanceof Error) {

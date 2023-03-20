@@ -7,9 +7,21 @@ import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './core/state';
+import { Store, StoreModule, MetaReducer, ActionReducer } from '@ngrx/store';
+import { reducers } from './core/state';
+import { localStorageSync } from 'ngrx-store-localstorage';
 
+export function localStorageSyncReducer(
+  reducer: ActionReducer<any>,
+): ActionReducer<any> {
+  return localStorageSync({
+    keys: [
+      'courses',
+      'users',
+    ],
+  })(reducer);
+}
+const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
 @NgModule({
   declarations: [
     AppComponent,
